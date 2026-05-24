@@ -68,7 +68,15 @@ class SeasonSimulator {
     updateLoadingProgress(progress) {
         const loadingText = document.querySelector('.loading-text');
         if (loadingText) {
-            loadingText.textContent = `Loading magical environment... ${Math.round(progress)}%`;
+            if (progress < 30) {
+                loadingText.textContent = `Preparing your seasons...`;
+            } else if (progress < 60) {
+                loadingText.textContent = `Loading weather effects...`;
+            } else if (progress < 90) {
+                loadingText.textContent = `Almost ready...`;
+            } else {
+                loadingText.textContent = `Welcome!`;
+            }
         }
     }
     
