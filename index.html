@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Season Simulator - Immersive Weather Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Environment Container -->
+    <div id="environment" class="environment">
+        <!-- Dynamic Background Layers -->
+        <div class="background-layer" id="backgroundLayer"></div>
+        <div class="atmosphere-layer" id="atmosphereLayer"></div>
+        
+        <!-- Particle Canvas -->
+        <canvas id="particleCanvas" class="particle-canvas"></canvas>
+        
+        <!-- Weather Effects -->
+        <div class="weather-effects" id="weatherEffects">
+            <div class="rain-container" id="rainContainer"></div>
+            <div class="snow-container" id="snowContainer"></div>
+            <div class="fog-overlay" id="fogOverlay"></div>
+            <div class="lightning-flash" id="lightningFlash"></div>
+        </div>
+        
+        <!-- Floating Control Panel -->
+        <div class="control-panel" id="controlPanel">
+            <div class="panel-header">
+                <h1 class="panel-title">Season Simulator</h1>
+                <div class="panel-subtitle">Immersive Weather Experience</div>
+            </div>
+            
+            <!-- Season Selector -->
+            <div class="season-selector">
+                <h3>Seasons</h3>
+                <div class="season-buttons">
+                    <button class="season-btn active" data-season="spring">
+                        <span class="season-icon">🌸</span>
+                        <span class="season-name">Spring</span>
+                    </button>
+                    <button class="season-btn" data-season="summer">
+                        <span class="season-icon">☀️</span>
+                        <span class="season-name">Summer</span>
+                    </button>
+                    <button class="season-btn" data-season="autumn">
+                        <span class="season-icon">🍂</span>
+                        <span class="season-name">Autumn</span>
+                    </button>
+                    <button class="season-btn" data-season="winter">
+                        <span class="season-icon">❄️</span>
+                        <span class="season-name">Winter</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Weather Controls -->
+            <div class="weather-controls">
+                <h3>Weather</h3>
+                <div class="weather-buttons">
+                    <button class="weather-btn active" data-weather="sunny">
+                        <span class="weather-icon">☀️</span>
+                        <span class="weather-name">Sunny</span>
+                    </button>
+                    <button class="weather-btn" data-weather="rain">
+                        <span class="weather-icon">🌧️</span>
+                        <span class="weather-name">Rain</span>
+                    </button>
+                    <button class="weather-btn" data-weather="snow">
+                        <span class="weather-icon">❄️</span>
+                        <span class="weather-name">Snow</span>
+                    </button>
+                    <button class="weather-btn" data-weather="wind">
+                        <span class="weather-icon">💨</span>
+                        <span class="weather-name">Wind</span>
+                    </button>
+                    <button class="weather-btn" data-weather="thunderstorm">
+                        <span class="weather-icon">⛈️</span>
+                        <span class="weather-name">Storm</span>
+                    </button>
+                    <button class="weather-btn" data-weather="fog">
+                        <span class="weather-icon">🌫️</span>
+                        <span class="weather-name">Fog</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Environment Controls -->
+            <div class="environment-controls">
+                <div class="control-group">
+                    <label for="timeSlider">Time of Day</label>
+                    <input type="range" id="timeSlider" min="0" max="24" value="12" step="0.5">
+                    <span class="time-display" id="timeDisplay">12:00</span>
+                </div>
+                
+                <div class="control-group">
+                    <label for="intensitySlider">Animation Intensity</label>
+                    <input type="range" id="intensitySlider" min="0.1" max="2" value="1" step="0.1">
+                </div>
+                
+                <div class="toggle-controls">
+                    <button class="toggle-btn" id="soundToggle">
+                        <span class="toggle-icon">🔊</span>
+                        <span class="toggle-text">Sound</span>
+                    </button>
+                    <button class="toggle-btn" id="fullscreenToggle">
+                        <span class="toggle-icon">⛶</span>
+                        <span class="toggle-text">Fullscreen</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Weather Info Display -->
+        <div class="weather-info" id="weatherInfo">
+            <div class="current-season" id="currentSeason">Spring</div>
+            <div class="current-weather" id="currentWeather">Sunny</div>
+            <div class="temperature" id="temperature">22°C</div>
+        </div>
+        
+        <!-- Loading Screen -->
+        <div class="loading-screen" id="loadingScreen">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Loading magical environment...</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Audio Elements -->
+    <audio id="rainAudio" loop preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
+    <audio id="windAudio" loop preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
+    <audio id="thunderAudio" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
